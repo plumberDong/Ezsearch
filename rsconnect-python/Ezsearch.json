@@ -1,0 +1,12 @@
+{
+    "https://api.shinyapps.io": {
+        "server_url": "https://api.shinyapps.io",
+        "filename": "D:\\2024\\EZsearch\\Ezsearch",
+        "app_url": "https://plumber.shinyapps.io/ezsearch/",
+        "app_id": 11058117,
+        "app_guid": null,
+        "title": "Ezsearch",
+        "app_mode": "python-shiny",
+        "app_store_version": 1
+    }
+}

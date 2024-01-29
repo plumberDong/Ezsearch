@@ -1,5 +1,5 @@
 import chromadb
-import api_keys
+import utils.api_keys as api_keys
 import pandas as pd
 from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 import time

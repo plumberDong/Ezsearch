@@ -1,12 +1,12 @@
 # Ezsearch
 
-## 能做什么的？
+## 1. 能做什么的
 
 *Ezsearch* 是一个使用`python`编写的开源社科类文献检索项目。它将每篇社科文献的标题、关键词、摘要等信息转化为文本向量，可以允许用更具体的描述来对文献进行语义检索。
 
 简单来说，就是提供一段思路描述（例如：“*中国式现代化的一大阻碍是基层治理体系还不够完善*”），就能检索到与该描述最相关的文献。
 
-## 为什么要做这个项目？
+## 2. 为什么有这个项目
 
 在社科文献中，语义检索可以发挥更大的作用，因为：
 
@@ -15,7 +15,32 @@
 
 目前市面上的主流社科文献检索工具（例如知网）使用的还是字词匹配方式进行文献检索。但是，基于语义的检索可以提供更精确的检索结果，并且可以帮助人们更好地查找相关文献。
 
-## 项目的目标
+## 3. 如何使用
+
+### 3.1 在线版本
+
+网页版本已上传到`posit`，可以在线使用:  https://plumber.shinyapps.io/ezsearch/
+
+### 3.2 本地版本
+
+**Step1**： 请在utils中建立一个名为`api_keys.py`文件，在其中放入你`OpenAI`的*api_key*和*api_base*，例如：
+```
+api_key = "xx-xxxxxxxxxxxxxxxxxxxxxxxx",
+api_base= "https://api.xxxxxx.xxx/v1",
+```
+
+**Step2**：安装shiny for python（具体可参见[官方文档](https://shiny.posit.co/py/docs/install.html))
+
+```
+pip install --upgrade pip wheel
+pip install shiny
+```
+
+**Step3**：运行项目
+
+通过shiny运行`app.py`即可。如果使用的是VScode中，可以安装`Shiny for Python`扩展，之后点击`app.py`右上方的运行按钮。
+
+## 4. 项目目标
 
 *Ezsearch* 的目标是开发一个开源的社科类文献检索项目，它可以：
 
@@ -23,7 +48,7 @@
 2. 接收用户的思路描述，并将其转化为文本向量，与向量数据库的文献向量进行相似度计算，返回最相关的文献。
 3. 支持英文检索功能。
 
-## 项目的架构
+## 5.项目的架构
 
 ![基本架构](figs/image.png)
 
@@ -34,35 +59,24 @@
    1. 存储已爬取的学术文献的文本
    2. 支持基于文本描述的检索
 
-## 当前进度
 
-*EZsearch*已经有一个基于`R shinny`的版本，欢迎大家进行测试：
-
-https://plumber.shinyapps.io/EZsearch/
-
-## 文档说明
+## 6.核心文档说明
 
 - `datasets`: 存储文献原始资料
-- `chroma_db`: 向量数据库
-- `ezsearch_add.py`: 向向量数据库添加新文献
-- `ezsearch.py`: 项目**主程序**，起到检索功能
-- `output`: 检索结果输出到这个文件夹
+- `chromadb`: 向量数据库
+- `utils/ezsearch_add.py`: 向向量数据库添加新文献
+- `app.py`: 项目**主程序**，一个基于shiny for python的主程序
 
-使用前，请建立一个`api_keys.py`文件，在其中放入你的*api_key*和*api_base*，例如：
-```
-api_key = "xx-xxxxxxxxxxxxxxxxxxxxxxxx",
-api_base= "https://api.xxxxxx.xxx/v1",
-```
 
-## 期刊资料
+## 7.现有期刊资料
 
 目前包含的期刊内容：
 
 - [《社会学研究》](http://shxyj.ajcass.org/)：2000年第1期到2023年第6期。`ids`范围为`[shxyj0, shxyj1644]`
 - [《社会》](https://www.society.shu.edu.cn/CN/1004-8804/home.shtml):2005年第1期到2023年第5期。`ids`范围为`[sh0, sh1166]`
 
-## 如何贡献
+## 8.如何贡献
 
 - 向向量数据库追加新的文献
 - 优化项目的检索功能
-- 增加英文检索功能（中文通过openAI的api进行翻译，然后将翻译后的文字转化为向量，与英文文献匹配）
+- 增加英文检索功能
