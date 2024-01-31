@@ -3,9 +3,9 @@ import chromadb
 from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 import pandas as pd
 import utils.api_keys as api_keys # the file containing the API key for OpenAI
-
+from shiny import render
 # 定义文献源
-choices = {"社会学研究": "社会学研究", "社会": "社会"} #
+choices = {"社会学研究": "《社会学研究》", "社会": "《社会》"} #
 
 # 连接向量数据库
 client = chromadb.PersistentClient(path = 'chromadb')
@@ -18,7 +18,11 @@ collection = client.get_collection(name="sociology_papers",
 
 # 前端部分
 app_ui = ui.page_fluid(
-    ui.h1('EZsearch_V1.0'),
+    # 表格css样式
+    ui.include_css( "style.css"),
+    # 标题
+    ui.h1('EZsearch_V1.0a'),
+    # 说明
     ui.markdown(
         '''
         *基于语义的社科文献检索工具*
@@ -38,9 +42,11 @@ app_ui = ui.page_fluid(
                 ui.input_text_area("text", "输入你的陈述：", placeholder="Enter text", rows=8),
                 ui.input_action_button("gobutton", "搜索", class_="btn-primary")
             ),
-            ui.column(4, 
-                ui.input_slider('num_of_papers', '返回文献数量', value = 10, max=30, min = 5),
-                ui.input_checkbox_group("source", "文献源", choices, selected=["社会学研究", "社会"])
+            ui.column(6, 
+                ui.input_numeric('num_of_papers', '返回文献数量', value = 10, max=30, min = 5),
+                ui.input_checkbox_group("source", "文献源", choices, selected=["社会学研究", "社会"]),
+                # 年份
+                ui.input_slider("year_range", "年份范围", min=2005, max=2023, value=[2010, 2023])  
             )
         )
     ),
@@ -63,26 +69,40 @@ def server(input, output, session):
             query_texts = [input.text()], # 简单陈述
             n_results = input.num_of_papers(), # 返回的文献数量
             # 筛选条件
-            where={
-                    "Source": {
-                        "$in": list(input.source())
-                    }
+                where={
+                    '$and': [
+                        # 文献源条件
+                        {'Source': {'$in': list(input.source())}},
+                        # 年份条件
+                        {'Year': {'$gte': input.year_range()[0]}},
+                        {'Year': {'$lte': input.year_range()[1]}}
+                    ]
                     }
             )
         df = pd.DataFrame(result['metadatas'][0])
+        df['Link'] = df.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Title"]}</a>', axis=1)
         
         # selected columns
-        df = df[['Title', 'Author', 'Source', 'Year', 'Volume', 'Keyword']]
+        df = df[['Link', 'Author', 'Source', 'Year', 'Volume', 'Keyword']]
+        df.columns = ['标题', '作者', '来源', '年份', '卷', '关键词']
         
         return df
     
     
     # 输出表格
+    '''
     @output
     @render.table
     def paper_table():
         return search_papers()
-
+    '''
+    @output
+    @render.text  # 使用 render.text 来渲染 HTML
+    def paper_table():
+        df = search_papers()
+        # 将DataFrame转换为HTML，不转义HTML标签
+        html_table = df.to_html(escape=False, index=False, classes='table-modern')
+        return html_table
 
 # This is a shiny.App object. It must be named `app`.
 app = App(app_ui, server)

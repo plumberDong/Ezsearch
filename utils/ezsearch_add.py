@@ -1,13 +1,12 @@
 import chromadb
-import utils.api_keys as api_keys
+import api_keys as api_keys
 import pandas as pd
 from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 import time
 
 # the file path of the xls file containing the papers to be added
-dat_path = 'datasets/shxyj_2023_6.csv'
-journal_name = 'shxyj'
-exist_num = 1633 # 记录当前期刊的论文编号到哪里了
+dat_path = 'datasets/sh_2023_06.csv'
+
 
 # creating a permanent client
 client = chromadb.PersistentClient(path = 'chromadb')
@@ -28,7 +27,7 @@ df_to_dict = df.to_dict(orient='records')
 # adding the papers to the collection
 ids, documents, metadatas = [], [], []
 for i, doc in enumerate(df_to_dict):
-    ids.append(f"{journal_name}{i + exist_num + 1}")
+    ids.append(doc['id'])
     
     text = f"""题目:{doc['Title']}
     摘要:{doc['Summary']}

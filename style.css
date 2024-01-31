@@ -1,0 +1,27 @@
+.table-modern {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.03);
+    width: 100%;
+}
+
+.table-modern th {
+    padding: 15px;
+    text-align: center;/* 标题居中 */
+}
+
+.table-modern td {
+    padding: 15px;
+    text-align: left; 
+}
+
+.table-modern th {
+    background-color: #40a2d8;
+    color: white;
+}
+
+.table-modern tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

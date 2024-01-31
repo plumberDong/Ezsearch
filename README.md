@@ -72,8 +72,8 @@ pip install shiny
 
 目前包含的期刊内容：
 
-- [《社会学研究》](http://shxyj.ajcass.org/)：2000年第1期到2023年第6期。`ids`范围为`[shxyj0, shxyj1644]`
-- [《社会》](https://www.society.shu.edu.cn/CN/1004-8804/home.shtml):2005年第1期到2023年第5期。`ids`范围为`[sh0, sh1166]`
+- [《社会学研究》](http://shxyj.ajcass.org/)：2005年第1期到2023年第6期。
+- [《社会》](https://www.society.shu.edu.cn/CN/1004-8804/home.shtml):2005年第1期到2023年第6期。
 
 ## 8.如何贡献
 

@@ -1,0 +1,64 @@
+<mxfile host="65bd71144e">
+    <diagram id="aOMcj03g4hTys2xnlOp6" name="Page-1">
+        <mxGraphModel dx="175" dy="745" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="6" value="" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="7" target="5">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="300" y="525" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="相关的文献" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontFamily=simsun;fontSize=17;" vertex="1" parent="1">
+                    <mxGeometry x="345" y="610" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="向量数据库" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=simsun;fontSize=17;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="445" width="110" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="OpenAI" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=simsun;fontSize=17;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="345" y="270" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="向量" style="endArrow=classic;html=1;fontFamily=simsun;fontSize=17;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="8" target="7">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="480" y="480" as="sourcePoint"/>
+                        <mxPoint x="530" y="430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="文本" style="endArrow=classic;html=1;fontFamily=simsun;fontSize=17;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="148" target="147">
+                    <mxGeometry x="0.0006" width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="201.58000000000015" y="451.0400000000002" as="sourcePoint"/>
+                        <mxPoint x="530" y="430" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="145" value="文献资料库" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontFamily=simsun;fontSize=17;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="445" width="140" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="146" value="" style="endArrow=classic;html=1;fontFamily=simsun;fontSize=17;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.803;entryY=1.008;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="145" target="8">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="450" y="460" as="sourcePoint"/>
+                        <mxPoint x="500" y="410" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="147" value="OpenAI" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=simsun;fontSize=17;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="150" y="455" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="148" value="用户思路描述" style="rhombus;whiteSpace=wrap;html=1;fontFamily=simsun;fontSize=17;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="260" width="120" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="149" value="向量" style="endArrow=classic;html=1;fontFamily=simsun;fontSize=17;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="147" target="7">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="400" y="300" as="sourcePoint"/>
+                        <mxPoint x="400" y="455" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="151" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=simsun;fontSize=17;" edge="1" parent="1" source="150" target="145">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="150" value="资料搜集手段" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;fontFamily=simsun;fontSize=17;fillColor=#f5f5f5;rotation=-90;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="545" y="242.5" width="150" height="95" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

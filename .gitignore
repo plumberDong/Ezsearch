@@ -1,3 +1,7 @@
+# do not add manually, use gitignore command in terminal
+utils/api_keys.py
+utils/test.ipynb
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -75,6 +79,9 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# my py
+utils/api_keys.py
 
 # IPython
 profile_default/
